@@ -1,21 +1,21 @@
-"use client"
-import Header from "@/components/Header"
-import { useState, useEffect } from "react";
+'use client'
+
+import { useEffect, useState } from 'react';
 
 const page = () => {
-  const [show, setShow] = useState(false);
-
+  const [count, setCount] = useState<number>(0);
   useEffect(() => {
-    setShow(true);
-  }, []);
+    console.log('theres a change on : ', count)
+  }, [count]);
 
   return (
-    <main>
-      <Header />
-      <div className={`card ${show ? "show" : ""}`}>
-        Hello
+    <div className='p-10'>
+      <p className='text-center'>{count}</p>
+      <div className='flex gap-10 justify-center'>
+        <button onClick={() => setCount(count - 1)}>decrease</button>
+        <button onClick={() => setCount(count + 1)}>increase</button>
       </div>
-    </main>
+    </div>
   )
 }
 

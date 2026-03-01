@@ -1,10 +1,16 @@
-import { useContext } from "react"
-import { UserProvider } from "../contextProvider"
+'use client'
+import { UserContext } from "@/app/contexts/UserContext";
+import { useContext } from "react";
 
 const page = () => {
-  const user = useContext(UserProvider);
+  const userData = useContext(UserContext);
+
   return (
-    <div>this is the dashboard and users fetched ${user?.id}</div>
+    <div>
+      {userData.name}
+      {userData.age}
+      {userData.id}
+    </div>
   )
 }
 

@@ -1,0 +1,157 @@
+/* Global styles for the Capsule landing page.
+   Palette + type lifted from the app's design tokens (capsule/lib/tokens.dart). */
+
+@font-face {
+	font-family: 'Plus Jakarta Sans';
+	src: url('/fonts/PlusJakartaSans-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Plus Jakarta Sans';
+	src: url('/fonts/PlusJakartaSans-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Plus Jakarta Sans';
+	src: url('/fonts/PlusJakartaSans-SemiBold.ttf') format('truetype');
+	font-weight: 600;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Plus Jakarta Sans';
+	src: url('/fonts/PlusJakartaSans-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Plus Jakarta Sans';
+	src: url('/fonts/PlusJakartaSans-ExtraBold.ttf') format('truetype');
+	font-weight: 800;
+	font-display: swap;
+}
+
+:root {
+	--ink: #141019;
+	--ink-2: #1b1226;
+	--plum: #3b2e5c;
+	--muted: #5b4e7c;
+	--muted-2: #6b5c90;
+	--body-ink: #4b4067;
+	--faint: #b0a4ca;
+
+	--paper: #fbfafd;
+	--lav-1: #f0ecf7;
+	--lav-2: #f4f1fa;
+	--divider: #e7e1f1;
+
+	--card-1: #cfc3e8;
+	--card-2: #bda8df;
+	--card-3: #b69fdb;
+	--blob-pink: #f2c8d2;
+	--blob-mid: #c69bd8;
+	--blob-deep: #6e3f9e;
+	--seed: #6e3f9e;
+
+	--green-bg: #e4f0ea;
+	--green-ink: #26543f;
+	--danger: #e5484d;
+
+	--bg-top: #f3f1f6;
+	--bg-mid: #e8e2f1;
+	--bg-bottom: #ded5ec;
+
+	--glass: rgba(255, 255, 255, 0.72);
+	--glass-soft: rgba(255, 255, 255, 0.55);
+	--glass-line: rgba(20, 16, 25, 0.08);
+	--card-shadow: 0 40px 80px -30px rgba(60, 40, 90, 0.45);
+	--card-shadow-sm: 0 18px 40px -18px rgba(50, 30, 80, 0.5);
+
+	/* Primary solid button — inverts between themes, like the app's fill/onFill */
+	--fill: #141019;
+	--on-fill: #ffffff;
+
+	color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--ink: #f3effa;
+		--ink-2: #ebe4f7;
+		--plum: #cabfe4;
+		--muted: #9c8fbe;
+		--muted-2: #a99bc8;
+		--body-ink: #b3a6d2;
+		--faint: #6b5e8a;
+
+		--paper: #100b1a;
+		--lav-1: #221a36;
+		--lav-2: #1e1730;
+		--divider: #2c2347;
+
+		--card-1: #3b3059;
+		--card-2: #4b3b70;
+		--card-3: #473969;
+		--blob-mid: #8c6aa8;
+
+		--green-bg: #1e3b30;
+		--green-ink: #8fd9b8;
+
+		--bg-top: #181022;
+		--bg-mid: #1e1530;
+		--bg-bottom: #241833;
+
+		--glass: rgba(255, 255, 255, 0.06);
+		--glass-soft: rgba(255, 255, 255, 0.04);
+		--glass-line: rgba(255, 255, 255, 0.12);
+		--card-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.6);
+		--card-shadow-sm: 0 18px 44px -18px rgba(0, 0, 0, 0.55);
+
+		--fill: #efe9f8;
+		--on-fill: #171126;
+
+		color-scheme: dark;
+	}
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+	color: var(--ink);
+	background: var(--bg-mid);
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+a {
+	color: inherit;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.001ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.001ms !important;
+	}
+}

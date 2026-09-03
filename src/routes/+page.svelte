@@ -4,19 +4,7 @@
 	const REPO = 'https://github.com/Natnsis/capsule';
 	const RELEASES = REPO + '/releases/latest';
 	const APK = REPO + '/releases/latest/download/capsule.apk';
-	const SHA256 = '5f9107b3f01a6305735a93c6db32e50dfebd882ca242d42a186b0184ec1a8178';
 	const YEAR = new Date().getFullYear();
-
-	let copied = $state(false);
-	async function copySha() {
-		try {
-			await navigator.clipboard.writeText(SHA256);
-			copied = true;
-			setTimeout(() => (copied = false), 1800);
-		} catch {
-			copied = false;
-		}
-	}
 
 	onMount(() => {
 		const els = Array.from(document.querySelectorAll<HTMLElement>('.reveal'));
@@ -265,17 +253,6 @@
 							Download APK
 						</a>
 						<a class="pill pill-ghost" href={REPO}>Build from source</a>
-					</div>
-
-					<div class="checksum">
-						<div class="cs-head">
-							<span>SHA-256 · release APK</span>
-							<button type="button" onclick={copySha}>{copied ? 'Copied' : 'Copy'}</button>
-						</div>
-						<code>{SHA256}</code>
-						<p class="cs-verify">
-							Verify after download: <span>sha256sum capsule.apk</span>
-						</p>
 					</div>
 				</div>
 			</div>
@@ -817,62 +794,6 @@
 	}
 	.dl-inner h2 {
 		color: var(--ink-2);
-	}
-
-	.checksum {
-		margin-top: 30px;
-		padding: 18px 18px 16px;
-		border-radius: 20px;
-		background: var(--glass);
-		border: 1px solid var(--glass-line);
-		backdrop-filter: blur(6px);
-	}
-	.cs-head {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		font-size: 0.78rem;
-		font-weight: 700;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		color: var(--muted-2);
-	}
-	.cs-head button {
-		font: inherit;
-		font-size: 0.72rem;
-		font-weight: 800;
-		letter-spacing: 0.04em;
-		cursor: pointer;
-		border: 1px solid var(--glass-line);
-		background: var(--glass-soft);
-		color: var(--ink);
-		padding: 5px 12px;
-		border-radius: 999px;
-		transition: background 0.15s ease;
-	}
-	.cs-head button:hover {
-		background: var(--lav-1);
-	}
-	.checksum code {
-		display: block;
-		margin-top: 10px;
-		font-family: ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, Consolas, monospace;
-		font-size: 0.82rem;
-		line-height: 1.5;
-		word-break: break-all;
-		color: var(--ink);
-	}
-	.cs-verify {
-		margin: 12px 0 0;
-		font-size: 0.82rem;
-		color: var(--plum);
-	}
-	.cs-verify span {
-		font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-		background: var(--glass-soft);
-		padding: 2px 7px;
-		border-radius: 6px;
-		border: 1px solid var(--glass-line);
 	}
 
 	/* ---------- footer ---------- */

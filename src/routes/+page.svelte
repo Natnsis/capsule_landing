@@ -3,7 +3,8 @@
 
 	const REPO = 'https://github.com/Natnsis/capsule';
 	const RELEASES = REPO + '/releases/latest';
-	const APK = REPO + '/releases/latest/download/capsule.apk';
+	// Same-origin route that 302s to the latest APK — see src/routes/download/android/+server.ts
+	const DOWNLOAD = '/download/android';
 	const YEAR = new Date().getFullYear();
 
 	onMount(() => {
@@ -150,7 +151,7 @@
 					Once you seal a capsule, not even you can open it early.
 				</p>
 				<div class="cta-row">
-					<a class="pill pill-solid" href={APK}>
+					<a class="pill pill-solid" href={DOWNLOAD} data-sveltekit-reload rel="noopener">
 						{@render icon('device')}
 						Download for Android
 					</a>
@@ -248,7 +249,7 @@
 						from the same Flutter source.
 					</p>
 					<div class="cta-row">
-						<a class="pill pill-solid" href={APK}>
+						<a class="pill pill-solid" href={DOWNLOAD} data-sveltekit-reload rel="noopener">
 							{@render icon('device')}
 							Download APK
 						</a>
